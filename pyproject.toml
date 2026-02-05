@@ -41,10 +41,9 @@ pythonpath = "."
 addopts = '-p no:warnings'
 
 [tool.semantic_release]
-branch = "master"
+branch = "main"
 tag_format = "v{version}"
 changelog_file = "CHANGELOG.md"
-build_command = "uv build"
 
 version_toml = [
   "pyproject.toml:project.version"
