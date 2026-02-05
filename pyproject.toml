@@ -1,6 +1,6 @@
 [project]
 name = "fsmapper-api"
-version = "0.0.0"
+version = "1.0.0"
 description = "Python API responsible for storing, updating, and querying filesystem mapping data collected by the FSMapper agent."
 readme = "README.md"
 requires-python = ">=3.14"
@@ -41,8 +41,25 @@ pythonpath = "."
 addopts = '-p no:warnings'
 
 [tool.semantic_release]
-version_toml = ["pyproject.toml:project.version"]
+branch = "master"
+tag_format = "v{version}"
+changelog_file = "CHANGELOG.md"
+build_command = "uv build"
+
+version_toml = [
+  "pyproject.toml:project.version"
+]
+
 commit_parser = "conventional"
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+  "^chore",
+  "^ci",
+  "^test",
+  "^refactor"
+]
+
 
 [tool.taskipy.tasks]
 lint = "ruff check"
